@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +22,13 @@ class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private fun setButtonImage(button: Button, drawableResId: Int) {
+        val drawable = resources.getDrawable(drawableResId)
+        button.setCompoundDrawablesWithIntrinsicBounds(null, null, null, drawable)
+    }
+
+   
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,8 +41,29 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val close_open: Button = view.findViewById(R.id.close_open)
+
+        // 초기 설정
+        setButtonImage(close_open, R.drawable.window_open)
+
+        close_open.setOnClickListener {
+            // 상태 토글
+            close_open.isSelected = !close_open.isSelected
+
+            // 버튼이 눌렸을 때 상태에 따라 drawableBottom 이미지 변경
+            if (close_open.isSelected) {
+                // 눌린 상태 (state_pressed=true)이면 window_open.png로 설정
+                setButtonImage(close_open, R.drawable.window_open)
+                close_open.text = "open"
+            } else {
+                // 눌리지 않은 상태 (state_pressed=false)이면 window_close.png로 설정
+                setButtonImage(close_open, R.drawable.window_close)
+                close_open.text = "close"
+            }
+        }
+
+        return view
     }
 
     companion object {
