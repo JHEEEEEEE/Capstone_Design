@@ -27,6 +27,17 @@ class HomeFragment : Fragment() {
         button.setCompoundDrawablesWithIntrinsicBounds(null, null, null, drawable)
     }
 
+    private fun setToggleButton(button: Button, onText: String, offText: String, onClick: () -> Unit) {
+        button.setOnClickListener {
+            // 상태 토글
+            button.isSelected = !button.isSelected
+            // 버튼 텍스트 설정
+            button.text = if (button.isSelected) onText else offText
+            // onClick 콜백 호출
+            onClick()
+        }
+    }
+
    
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,27 +53,43 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        val close_open: Button = view.findViewById(R.id.close_open)
+        val window_openclose: Button = view.findViewById(R.id.window_openclose)
+        val wifi_onoff: Button = view.findViewById(R.id.wifi_onoff)
+        val lock_onoff: Button = view.findViewById(R.id.lock_onoff)
 
         // 초기 설정
-        setButtonImage(close_open, R.drawable.window_open)
+        setButtonImage(window_openclose, R.drawable.window_open)
+        setButtonImage(wifi_onoff, R.drawable.wifi_on)
+        setButtonImage(lock_onoff, R.drawable.lock_on)
 
-        close_open.setOnClickListener {
-            // 상태 토글
-            close_open.isSelected = !close_open.isSelected
-
-            // 버튼이 눌렸을 때 상태에 따라 drawableBottom 이미지 변경
-            if (close_open.isSelected) {
-                // 눌린 상태 (state_pressed=true)이면 window_open.png로 설정
-                setButtonImage(close_open, R.drawable.window_open)
-                close_open.text = "open"
+        // close_open 버튼 처리
+        setToggleButton(window_openclose, "open", "close") {
+            // 버튼 상태에 따라 drawableBottom 이미지 변경
+            if (window_openclose.isSelected) {
+                setButtonImage(window_openclose, R.drawable.window_open)
             } else {
-                // 눌리지 않은 상태 (state_pressed=false)이면 window_close.png로 설정
-                setButtonImage(close_open, R.drawable.window_close)
-                close_open.text = "close"
+                setButtonImage(window_openclose, R.drawable.window_close)
             }
         }
 
+        // wifi_onoff 버튼 처리
+        setToggleButton(wifi_onoff, "on", "off") {
+            // 버튼 상태에 따라 drawableBottom 이미지 변경
+            if (wifi_onoff.isSelected) {
+                setButtonImage(wifi_onoff, R.drawable.wifi_on)
+            } else {
+                setButtonImage(wifi_onoff, R.drawable.wifi_off)
+            }
+        }
+
+        setToggleButton(lock_onoff, "on", "off") {
+            // 버튼 상태에 따라 drawableBottom 이미지 변경
+            if (lock_onoff.isSelected) {
+                setButtonImage(lock_onoff, R.drawable.lock_on)
+            } else {
+                setButtonImage(lock_onoff, R.drawable.lock_off)
+            }
+        }
         return view
     }
 
