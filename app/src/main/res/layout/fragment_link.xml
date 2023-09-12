@@ -22,7 +22,33 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:background="@drawable/gradient_background" />
+            android:background="@drawable/gradient_background" >
+
+            <Button
+                android:layout_width="174dp"
+                android:layout_height="175dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="207dp"
+                android:layout_marginBottom="484dp"
+                android:background="@drawable/round_button2"
+                android:backgroundTint="#4975E3"
+                android:drawableTop="@drawable/icon_on_off1"
+                android:drawablePadding="-1dp"
+                android:paddingTop="10dp"
+                android:text="창문 개폐 장치"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.202"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/window"
+                app:layout_constraintVertical_bias="0.031" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
