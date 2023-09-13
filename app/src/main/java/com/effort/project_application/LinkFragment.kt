@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,13 +30,38 @@ class LinkFragment : Fragment() {
         }
     }
 
+    private var isClicked = false // 버튼 클릭 상태를 추적하는 변수
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_link, container, false)
+        val view = inflater.inflate(R.layout.fragment_link, container, false)
+        val myButton = view.findViewById<Button>(R.id.bt_connect)
+        val myButton2 = view.findViewById<Button>(R.id.bt_unconnect)
+        val bt1 = view.findViewById<Button>(R.id.button1)
+        val bt2 = view.findViewById<Button>(R.id.button2)
+        val bt3 = view.findViewById<Button>(R.id.button3)
+
+        myButton.setOnClickListener {
+            // 클릭 이벤트 처리
+            // 원하는 작업을 수행
+            bt1.text = "연동중"
+            bt2.text = "연동중"
+            bt3.text = "연동중"
+        }
+
+        myButton2.setOnClickListener {
+            // 클릭 이벤트 처리
+            // 원하는 작업을 수행
+            bt1.text = "미연동"
+            bt2.text = "미연동"
+            bt3.text = "미연동"
+        }
+
+
+        return view
     }
+
 
     companion object {
         /**
