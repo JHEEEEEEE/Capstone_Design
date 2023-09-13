@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingFragment">
+    tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        <!-- TODO: Update blank fragment layout -->
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -19,33 +14,48 @@
             app:title="WiFi 설정"
             app:titleTextColor="#2196F3" />
 
-        <LinearLayout
+        <View
+            android:id="@+id/topSpace"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:background="@color/white">
+            android:layout_height="142dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.35"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Switch
-                android:id="@+id/switch1"
-                android:layout_width="375dp"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/round_button"
-                android:text="     사용 중"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <View
+            android:id="@+id/backgroundView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:background="@drawable/gradient_background" />
+            android:layout_height="584dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="146dp"
+            android:layout_marginBottom="1dp"
+            android:background="#9575CFF8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topSpace" />
+
+        <!-- 배경색이 적용된 영역 내에 버튼 추가 -->
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="374dp"
+            android:layout_height="57dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="611dp"
+            android:background="@drawable/round_button"
+            android:text="     사용 중"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
 
-    </LinearLayout>
-
-
-</FrameLayout>
+</RelativeLayout>
