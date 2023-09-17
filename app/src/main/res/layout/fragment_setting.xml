@@ -59,4 +59,28 @@
             android:textSize="20sp" />
 
 
+        <Button
+            android:id="@+id/btnSetLock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnSetDelLock"
+            android:layout_marginBottom="22dp"
+            android:text="잠금 설정" />
+
+        <Button
+            android:id="@+id/btnSetDelLock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnChangePwd"
+            android:layout_marginBottom="23dp"
+            android:text="잠금 비활성화" />
+
+        <Button
+            android:id="@+id/btnChangePwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="370dp"
+            android:text="암호 변경" />
+
 </RelativeLayout>
