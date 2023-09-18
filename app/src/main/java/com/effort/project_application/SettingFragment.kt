@@ -19,6 +19,7 @@ class SettingFragment : Fragment() {
     private lateinit var btnChangePwd: Button
     private var lock = true
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
